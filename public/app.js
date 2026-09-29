@@ -250,11 +250,8 @@ function prefill({ service_id, date, time, dentist_id } = {}) {
   document.getElementById("book").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
 }
 
-// live updates: refresh times whenever anyone books or cancels that day
-try {
-  const es = new EventSource("/api/events");
-  es.addEventListener("slots", e => { try { if (JSON.parse(e.data).date === B.date) loadBusy(); } catch {} });
-} catch {}
+// keep times fresh while the page is open (someone else may book meanwhile)
+setInterval(() => { if (!document.hidden) loadBusy(); }, 15000);
 document.addEventListener("visibilitychange", () => { if (!document.hidden) loadBusy(); });
 
 renderAll(); loadMine();

@@ -188,10 +188,10 @@ async function start() {
   renderAlerts(me.notify);
   if (!started) {
     started = true; setupForms();
-    const es = new EventSource("/api/events");   // reconnects with the new login cookie
-    let t; es.addEventListener("appointments", () => { clearTimeout(t); t = setTimeout(() => load().catch(() => {}), 300); });
-    es.addEventListener("feedback", () => loadFeedback().catch(() => {}));
-    setInterval(() => load().catch(() => {}), 60000);
+    // check for new bookings and feedback while the desk is open
+    setInterval(() => { if (!document.hidden) load().catch(() => {}); }, 15000);
+    setInterval(() => { if (!document.hidden) loadFeedback().catch(() => {}); }, 60000);
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) load().catch(() => {}); });
   }
   await load();
   loadFeedback().catch(() => {});

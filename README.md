@@ -13,21 +13,35 @@ Clinic website with live online booking, a password-protected staff front desk, 
   - emails the patient a confirmation
 - Each booking in `/admin` shows whether its alerts were sent (✓) or failed (✗, hover for the reason).
 
-## 1. Run it on your computer
+## 1. Where it runs
 
-Needs Node.js 20 or newer.
+The site runs on **Netlify**, which gives it these parts:
+- **Pages:** the `public/` folder.
+- **Booking logic:** one Netlify Function, `netlify/functions/api.mjs`, which answers every `/api/*` request.
+- **Data:** bookings, staff, feedback and the alert log are kept in **Netlify Blobs**. They stay saved across deploys.
+- **Double-booking protection:** each 30-minute chair slot is saved with a "create only if it doesn't exist yet" write, so two people can't book the same slot even at the same second.
+
+Live site: https://alder-row-dental-clinic.netlify.app (staff desk: `/admin`)
+
+### Run it on your computer
 
 ```bash
 npm install
-cp .env.example .env      # then edit .env (see below)
-npm start
+cp .env.example .env      # then edit .env
+npx netlify dev           # http://localhost:8888
 ```
 
-Open http://localhost:3000 for the site and http://localhost:3000/admin for the staff desk.
+### Publish changes
+
+```bash
+npx netlify deploy --prod --dir public --functions netlify/functions
+```
+
+**Settings (passwords, alert addresses, API keys)** go in the Netlify dashboard, not in the code: Project → **Site configuration → Environment variables**. The settings are the same ones listed in `.env.example`. Redeploy after changing them.
 
 ### First sign-in and staff accounts
 
-On the very first start, the server creates one staff account from `.env`:
+On the very first request, the site creates one staff account from the environment variables:
 
 ```
 ADMIN_NAME=Clinic owner
@@ -91,7 +105,7 @@ It's a free community service, so for a busy clinic use Option B.
    NOTIFY_WHATSAPP=917489791016
    ```
 
-After setting either option, restart the server, open `/admin`, and press **Send test alert**.
+After setting either option, redeploy, open `/admin`, and press **Send test alert**.
 
 ### Per-dentist alerts
 
@@ -122,20 +136,15 @@ Edit `shared/clinic.config.js` for:
 - treatments and prices
 - currency
 
-Restart after changes. The clinic photos are illustrations in `public/index.html`; replace them with your own images.
+Redeploy after changes. The clinic photos are illustrations in `public/index.html`; replace them with your own images.
 
-## 6. Put it online
+## 6. A custom domain
 
-Any host that runs Node.js works, such as Render, Railway, Fly.io or a VPS.
-
-- Start command: `npm start`
-- Add every setting from `.env` as an environment variable on the host. Don't upload the `.env` file itself.
-- The bookings database is a file (`data/clinic.db`). Give the app a **persistent disk** and set `DB_PATH` to a path on it, or bookings are lost on redeploy.
-- Use HTTPS (most hosts do this automatically) and a strong `ADMIN_PASSWORD`.
-- Back up `data/clinic.db` regularly.
+When a clinic buys the site, go to Netlify → Project → **Domain management → Add a domain**. Netlify sets up HTTPS for it automatically.
 
 ## Notes
 
 - All times are in `CLINIC_TZ` (default `Asia/Kolkata`).
+- Open pages check for new bookings every 15 seconds.
 - Staff bookings from `/admin` don't alert the clinic by default, since staff entered them. Set `NOTIFY_ON_STAFF_BOOKINGS=true` to change that. Patients with an email still get a confirmation.
 - Patients cancel from "Your bookings" on the same device. The reference plus their phone number is required.
