@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alder Row Dental</title>
+<meta name="description" content="Family and cosmetic dentistry in Riverside. See live appointment times and book online in a minute.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M9 4c-4 0-6 3-6 7 0 5 2 7 3 12 .6 3 1.4 5 3 5 2.2 0 2-6 7-6s4.8 6 7 6c1.6 0 2.4-2 3-5 1-5 3-7 3-12 0-4-2-7-6-7-3 0-4 1.5-7 1.5S12 4 9 4z' fill='%230B6E66'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a class="logo" href="#top">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 4c-4 0-6 3-6 7 0 5 2 7 3 12 .6 3 1.4 5 3 5 2.2 0 2-6 7-6s4.8 6 7 6c1.6 0 2.4-2 3-5 1-5 3-7 3-12 0-4-2-7-6-7-3 0-4 1.5-7 1.5S12 4 9 4z" fill="var(--jade)"/><path d="M12 10c1.2.6 2.6.9 4 .9" stroke="var(--jade-ink)" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+    Alder Row Dental
+  </a>
+  <div class="navlinks"><a href="#services">Treatments</a><a href="#team">Dentists</a><a href="#clinic">Clinic</a><a href="#visit">Visit</a><a href="#feedback">Feedback</a></div>
+  <a class="btn btn-primary" href="#book">Book now</a>
+</div></nav>
+
+<div class="wrap" id="top">
+  <header class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">Family &amp; cosmetic dentistry · Riverside</span>
+      <h1>Healthy teeth, <em>booked in a minute.</em></h1>
+      <p class="lede">Check-ups, whitening, clear aligners and implants from a small team that explains every step. See live openings, pick a time, and you're done. Our assistant answers questions around the clock.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#book">Book an appointment</a>
+        <a class="btn btn-ghost" data-contact="call" href="#">Call us</a>
+        <button class="btn btn-ghost" type="button" id="heroChat">Ask a question</button>
+      </div>
+      <div class="facts">
+        <div><b class="mono">6 days</b><span>Mon–Sat opening</span></div>
+        <div><b class="mono">Same day</b><span>Emergency slots</span></div>
+        <div><b class="mono">$0</b><span>Aligner consultation</span></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="orb"></div>
+      <canvas id="tooth" aria-label="3D model of a molar. Drag to rotate." role="img"></canvas>
+      <div class="shade">
+        <div class="shade-top"><span class="eyebrow">VITA classical shade guide</span><span>Shade <b id="shadeName">A2</b></span></div>
+        <div class="shade-scale" id="shadeScale" role="group" aria-label="Tooth shade"></div>
+        <small>Lightest (B1) to darkest (C4). Whitening typically lifts teeth 2–8 shades. Tap a tab to preview it on the model.</small>
+      </div>
+    </div>
+  </header>
+</div>
+
+<section id="services"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Treatments</span><h2>What we do, and what it costs</h2><p>Prices are starting points. Your dentist confirms the plan and the final price before any treatment begins.</p></div>
+  <div class="svc-grid" id="svcGrid"></div>
+</div></section>
+
+<section id="team" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Dentists</span><h2>Three dentists, one careful approach</h2></div>
+  <div class="team" id="team-list"></div>
+</div></section>
+
+<section id="clinic" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">The clinic</span><h2>Bright rooms, quiet chairs, sterile everything</h2></div>
+  <div class="gallery">
+    <figure>
+      <svg viewBox="0 0 800 560" role="img" aria-label="Illustration of a treatment room">
+        <rect x="0" y="0" width="800" height="560" fill="var(--sunk)"/>
+        <rect x="470" y="60" width="260" height="220" rx="8" fill="var(--surface)" stroke="var(--line)" stroke-width="4"/>
+        <line x1="600" y1="60" x2="600" y2="280" stroke="var(--line)" stroke-width="4"/>
+        <line x1="470" y1="170" x2="730" y2="170" stroke="var(--line)" stroke-width="4"/>
+        <rect x="0" y="440" width="800" height="120" fill="var(--line)" opacity=".6"/>
+        <path d="M180 420 L260 300 Q275 280 300 285 L520 330 Q560 338 570 370 L580 400 L260 410 Z" fill="var(--jade)"/>
+        <path d="M140 300 Q150 250 190 255 L260 300 L200 330 Z" fill="var(--jade)" opacity=".85"/>
+        <rect x="330" y="410" width="30" height="40" fill="var(--muted)"/>
+        <ellipse cx="345" cy="455" rx="90" ry="12" fill="var(--muted)" opacity=".5"/>
+        <path d="M420 80 L420 150 Q420 170 360 190 L300 205" stroke="var(--muted)" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <ellipse cx="295" cy="210" rx="44" ry="20" fill="var(--surface)" stroke="var(--muted)" stroke-width="6"/>
+        <path d="M265 230 L200 380 L390 380 L325 230 Z" fill="var(--glow)" opacity=".35"/>
+        <rect x="620" y="330" width="120" height="110" rx="10" fill="var(--surface)" stroke="var(--line)" stroke-width="4"/>
+        <circle cx="650" cy="310" r="18" fill="var(--jade)" opacity=".6"/><rect x="646" y="310" width="8" height="24" fill="var(--muted)"/>
+      </svg>
+      <figcaption><b>Treatment room 1.</b> Ceiling screens, noise-cancelling headphones and a chair that reclines slowly.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 400 260" role="img" aria-label="Illustration of the reception area">
+        <rect width="400" height="260" fill="var(--sunk)"/>
+        <rect x="40" y="130" width="220" height="80" rx="10" fill="var(--jade)"/>
+        <rect x="40" y="120" width="220" height="16" rx="6" fill="var(--surface)"/>
+        <rect x="120" y="92" width="60" height="30" rx="4" fill="var(--muted)"/>
+        <path d="M320 210 L310 150 L350 150 L340 210 Z" fill="var(--muted)"/>
+        <path d="M330 150 C300 110 300 80 320 60 C330 90 340 100 330 150 M330 150 C360 110 370 90 360 60 C340 90 335 110 330 150" fill="var(--jade)" opacity=".8"/>
+        <rect x="0" y="210" width="400" height="50" fill="var(--line)" opacity=".6"/>
+      </svg>
+      <figcaption><b>Reception.</b> Step-free access and a quiet corner for children.</figcaption>
+    </figure>
+    <figure>
+      <svg viewBox="0 0 400 260" role="img" aria-label="Illustration of the sterilisation room">
+        <rect width="400" height="260" fill="var(--sunk)"/>
+        <rect x="40" y="60" width="150" height="150" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="4"/>
+        <circle cx="115" cy="130" r="42" fill="var(--sunk)" stroke="var(--muted)" stroke-width="6"/>
+        <circle cx="115" cy="130" r="20" fill="var(--glow)"/>
+        <rect x="220" y="100" width="140" height="110" rx="8" fill="var(--jade)"/>
+        <rect x="232" y="114" width="116" height="20" rx="4" fill="var(--surface)" opacity=".8"/>
+        <rect x="232" y="144" width="116" height="20" rx="4" fill="var(--surface)" opacity=".8"/>
+        <rect x="232" y="174" width="116" height="20" rx="4" fill="var(--surface)" opacity=".8"/>
+        <rect x="0" y="210" width="400" height="50" fill="var(--line)" opacity=".6"/>
+      </svg>
+      <figcaption><b>Sterilisation.</b> Every instrument is autoclaved and sealed in a pouch, then opened in front of you.</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section id="book" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Online booking</span><h2>Pick a treatment and a time</h2><p>Times update live. A slot you choose is held for you as soon as you confirm, so nobody else can take it.</p></div>
+  <div class="book">
+    <form class="panel" id="bookForm" novalidate style="position:relative">
+      <div class="step" id="st1"><div class="step-label"><span class="n">1</span>Treatment</div><div class="chips" id="svcChips"></div></div>
+      <div class="step" id="st2"><div class="step-label"><span class="n">2</span>Dentist</div><div class="chips" id="docChips"></div></div>
+      <div class="step" id="st3"><div class="step-label"><span class="n">3</span>Day</div><div class="days" id="days"></div></div>
+      <div class="step" id="st4"><div class="step-label"><span class="n">4</span>Time</div><div class="times" id="times"></div></div>
+      <div class="step" id="st5"><div class="step-label"><span class="n">5</span>Your details</div>
+        <div class="fields">
+          <label class="f full">Full name<input id="fName" autocomplete="name" placeholder="e.g. Priya Sharma" required><span class="ferr" id="eName" hidden>Please enter your full name.</span></label>
+          <label class="f full">Phone number<input id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="e.g. +91 98765 43210" required><span class="ferr" id="ePhone" hidden>Please enter a phone number with 7 to 15 digits.</span></label>
+          <label class="f full">Email<input id="fEmail" type="email" autocomplete="email" placeholder="you@example.com" required><span class="ferr" id="eEmail" hidden>Please enter a valid email, like you@example.com.</span></label>
+          <label class="f">First visit here?<select id="fNew"><option value="yes">Yes, I'm a new patient</option><option value="no">No, I've been before</option></select></label>
+          <label class="f">Date of birth<input id="fDob" type="date"></label>
+          <label class="f full">Anything we should know? <textarea id="fNotes" placeholder="Pain, anxiety, allergies, medication…"></textarea></label>
+        </div>
+      </div>
+      <input id="fWebsite" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <p class="err" id="bookErr" hidden></p>
+    </form>
+    <aside class="summary">
+      <div class="panel" id="sumPanel">
+        <h3>Your appointment</h3>
+        <div id="sumRows"></div>
+        <button class="btn btn-primary" id="confirmBtn" type="button" style="justify-content:center">Confirm booking</button>
+        <p class="banner" id="modeBanner">Times update live. The clinic is notified the moment you book.</p>
+      </div>
+      <div class="panel" id="minePanel" hidden>
+        <h3>Your bookings</h3>
+        <div class="mine" id="mineList"></div>
+      </div>
+    </aside>
+  </div>
+</div></section>
+
+
+
+<section id="visit" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Visit</span><h2>Find us</h2></div>
+  <div class="visit">
+    <div class="panel"><h3>Opening hours</h3><div class="hours" id="hours"></div></div>
+    <div class="panel"><h3>Contact</h3>
+      <div class="copyline"><span>Phone</span><b class="mono" id="cPhone">(555) 014-2290</b><button type="button" data-copy="cPhone">Copy</button></div>
+      <div class="copyline"><span>WhatsApp</span><b class="mono" id="cWa">+91 74897 91016</b><button type="button" data-copy="cWa">Copy</button><a href="https://wa.me/917489791016" target="_blank" rel="noopener">Chat ↗</a></div>
+      <div class="copyline"><span>Email</span><b id="cEmail">hello@alderrow.example</b><button type="button" data-copy="cEmail">Copy</button></div>
+      <div class="contact-btns">
+        <a class="btn btn-primary" data-contact="call" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call now</a>
+        <a class="btn btn-ghost wa-btn" data-contact="whatsapp" href="#" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z"/></svg>WhatsApp</a>
+        <a class="btn btn-ghost" data-contact="email" href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Email</a>
+      </div>
+      <p style="color:var(--muted);font-size:.92rem">For severe swelling, bleeding that won't stop, or trouble breathing or swallowing, call your local emergency number now.</p>
+    </div>
+    <div class="panel"><h3>Address</h3>
+      <p>48 Alder Row, Second floor<br>Riverside RS4 2PL</p>
+      <p style="color:var(--muted);font-size:.92rem">Two minutes from Riverside station. Free parking behind the building, with lift access.</p>
+      <a href="https://www.openstreetmap.org/search?query=Riverside" target="_blank" rel="noopener">Open in maps ↗</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="feedback" style="padding-top:0"><div class="wrap">
+  <div class="fb-card">
+    <div class="sec-head" style="margin-bottom:0"><span class="eyebrow">Feedback</span><h2>How was your visit?</h2><p>Tell us what went well and what we should fix. Every message is read by the clinic team.</p></div>
+    <form class="panel" id="fbForm" novalidate>
+      <fieldset class="rate" id="fbRate">
+        <legend>Your rating</legend>
+        <div class="rate-stars">
+          <input type="radio" name="rating" id="r5" value="5"><label for="r5" title="Excellent">★</label>
+          <input type="radio" name="rating" id="r4" value="4"><label for="r4" title="Good">★</label>
+          <input type="radio" name="rating" id="r3" value="3"><label for="r3" title="Okay">★</label>
+          <input type="radio" name="rating" id="r2" value="2"><label for="r2" title="Poor">★</label>
+          <input type="radio" name="rating" id="r1" value="1"><label for="r1" title="Very poor">★</label>
+        </div>
+        <span class="rate-word" id="rateWord">Tap a star</span>
+      </fieldset>
+      <label class="f">What should we know? (optional)<textarea id="fbComment" maxlength="1000" placeholder="The hygienist was gentle, but I waited 20 minutes past my time…"></textarea></label>
+      <div class="fields">
+        <label class="f">Your name (optional)<input id="fbName" autocomplete="name"></label>
+        <label class="f">Phone or email, if you'd like a reply<input id="fbContact" autocomplete="off"></label>
+      </div>
+      <input id="fbWebsite" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <p class="err" id="fbErr" hidden></p>
+      <button class="btn btn-primary" type="submit" style="justify-content:center">Send feedback</button>
+    </form>
+  </div>
+</div></section>
+
+<div class="wrap"><footer>
+  <span>© Alder Row Dental</span>
+  <span>Demo clinic. The name, team, prices and address are placeholders to replace with your own.</span>
+</footer></div>
+
+<div class="contact-fabs" id="contactFabs" aria-label="Contact the clinic">
+  <a class="cfab call" data-contact="call" href="#" aria-label="Call the clinic"><span class="cfab-label">Call</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
+  <a class="cfab wa" data-contact="whatsapp" href="#" target="_blank" rel="noopener" aria-label="Message the clinic on WhatsApp"><span class="cfab-label">WhatsApp</span><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z"/></svg></a>
+  <a class="cfab mail" data-contact="email" href="#" aria-label="Email the clinic"><span class="cfab-label">Email</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+</div>
+<button class="chat-fab" id="chatFab" type="button" aria-expanded="false" aria-controls="chat">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+  Ask Alder
+</button>
+<div class="chat" id="chat" hidden role="dialog" aria-label="Clinic assistant">
+  <header><span class="dot"></span><div><b>Alder, clinic assistant</b><small id="chatMode">Answers instantly · can check live times</small></div><button type="button" id="chatClose" aria-label="Close chat">×</button></header>
+  <div class="msgs" id="msgs" aria-live="polite"></div>
+  <div class="quick" id="quick"></div>
+  <form id="chatForm"><input id="chatInput" placeholder="Ask about treatments, prices, times…" autocomplete="off" aria-label="Message"><button type="submit">Send</button></form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script type="module" src="/app.js"></script>
+</body>
+</html>

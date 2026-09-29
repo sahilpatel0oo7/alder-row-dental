@@ -1,0 +1,24 @@
+# Render Blueprint: Render reads this to set up the site automatically.
+services:
+  - type: web
+    name: alder-row-dental
+    runtime: node
+    plan: free                 # demo; switch to a paid plan + disk for a real clinic
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/chat/status
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: CLINIC_TZ
+        value: Asia/Kolkata
+      - key: ADMIN_NAME
+        value: Clinic owner
+      - key: ADMIN_PHONE
+        value: "7489791016"
+      - key: ADMIN_PASSWORD      # Render asks you to type this in; it is never stored in GitHub
+        sync: false
+      - key: WHATSAPP_PROVIDER
+        value: none
+      - key: SEND_PATIENT_EMAIL
+        value: "true"

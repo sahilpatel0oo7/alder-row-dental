@@ -1,0 +1,21 @@
+{
+  "name": "alder-row-dental",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dental clinic website with live online booking, staff front desk, WhatsApp/email booking alerts and an AI chat assistant.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.129.0",
+    "better-sqlite3": "^12.11.1",
+    "dotenv": "^18.0.4",
+    "express": "^4.22.3",
+    "nodemailer": "^10.0.12"
+  }
+}
